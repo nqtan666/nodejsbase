@@ -1,13 +1,20 @@
+const express = require("express");
+// import thu vien express
+const app = express();
+// tao 1 app để sử dụng express
+const port = 3000;
+// port cổng 
 
-const   http = require('http');
-const server = http.createServer((req,res) => {
-    console.log('run request.....');
-    res.setHeader('Content-Type','text/html');
-    res.write('<h2>Hello Node Js</h2>')
-    res.write('<h3>Nguyen Quoc Tan</h3>')
-    res.end();
-})
+app.get("/", (req, res) => {
+  res.send("Toi la Quoc Tan!");
+});
 
-server.listen(3000,'localhost',()=>{
-    console.log('Nodejs run port 3000')
-})
+app.get("/about", (req, res) => {
+    res.send(`I'm Tan`);
+  });
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
+
+// khi chạy post sẽ gọi callback phía sau 
